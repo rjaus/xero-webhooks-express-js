@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const crypto = require('crypto')
 
 // Replace with your Xero Webhook Key
-const xero_webhook_key = 'R6GoQDzFDxr9y9BM8FVGVv4NL3ypTS3FFhiYG8TXt4WNJ1Tr8bJwI81x4O69Irbv/HZAf5Z4VA8AUhPZ3kqi+g=='
+const xero_webhook_key = 'XERO_WEBHOOK_KEY'
  
 // Create a new instance of express
 const app = express()
