@@ -12,8 +12,6 @@ const app = express()
  
 // Tell express to use the body-parser middleware and to not parse extended bodies
 var options = {
-  inflate: true,
-  limit: '100kb',
   type: 'application/json'
 };
 
