@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const crypto = require('crypto')
 
 // Replace with your Xero Webhook Key
-const xero_webhook_key = 'XERO_WEBHOOK_KEY'
+const xero_webhook_key = 'R6GoQDzFDxr9y9BM8FVGVv4NL3ypTS3FFhiYG8TXt4WNJ1Tr8bJwI81x4O69Irbv/HZAf5Z4VA8AUhPZ3kqi+g=='
  
 // Create a new instance of express
 const app = express()
@@ -16,11 +16,12 @@ var options = {
   limit: '100kb',
   type: 'application/json'
 };
-// Using the options above, tell the bodyParser module to return raw responses.
-app.use(bodyParser.raw(options));
+
+// Using the options above, tell create a bodyParser module to return raw responses.
+var itrBodyParser = bodyParser.raw(options)
  
-// Route that receives a POST request to /sms
-app.post('/webhook', function (req, res) {
+// Create a route that receives our webhook & pass it our itrBodyParser
+app.post('/webhook', itrBodyParser, function (req, res) {
 
   console.log("Body: "+req.body.toString())
   console.log("Xero Signature: "+req.headers['x-xero-signature'])
