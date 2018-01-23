@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const crypto = require('crypto')
 
 // Replace with your Xero Webhook Key
-const xero_webhook_key = 'XERO_WEBHOOKS_KEY'
+const xero_webhook_key = 'XERO_WEBHOOK_KEY'
  
 // Create a new instance of express
 const app = express()
@@ -26,7 +26,7 @@ app.post('/webhook', function (req, res) {
   console.log("Xero Signature: "+req.headers['x-xero-signature'])
 
   let hmac = crypto.createHmac("sha256", xero_webhook_key).update(req.body.toString()).digest("base64");
-  console.log("Response Signature: "+hmac)
+  console.log("Resp Signature: "+hmac)
 
   if (req.headers['x-xero-signature'] == hmac) {
   	res.statusCode = 200
