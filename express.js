@@ -10,12 +10,12 @@ const xero_webhook_key = 'XERO_WEBHOOK_KEY'
 // Create a new instance of express
 const app = express()
  
-// Tell express to use the body-parser middleware and to not parse extended bodies
+// Set the body parser options
 var options = {
   type: 'application/json'
 };
 
-// Using the options above, tell create a bodyParser module to return raw responses.
+// Using the options above, create a bodyParser middleware that returns raw responses.
 var itrBodyParser = bodyParser.raw(options)
  
 // Create a route that receives our webhook & pass it our itrBodyParser
