@@ -24,6 +24,7 @@ app.post('/webhook', itrBodyParser, function (req, res) {
   console.log("Body: "+req.body.toString())
   console.log("Xero Signature: "+req.headers['x-xero-signature'])
 
+  // Create our HMAC hash of the body, using our webhooks key
   let hmac = crypto.createHmac("sha256", xero_webhook_key).update(req.body.toString()).digest("base64");
   console.log("Resp Signature: "+hmac)
 
